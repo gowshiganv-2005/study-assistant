@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware';
 
 const API_BASE = import.meta.env.VITE_API_BASE 
   ? `${import.meta.env.VITE_API_BASE}/api` 
-  : 'http://localhost:3001/api';
+  : (import.meta.env.PROD ? '/api' : 'http://localhost:3001/api');
 
 const useStudyStore = create(
   persist(
